@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function shareOnWhatsApp() {
             const text = encodeURIComponent('Olá, gostaria de tirar dúvidas sobre o torneio de vôlei');
-            const url = `https://wa.me/21989890962?text=${text}`;
+            const url = `https://wa.me/+552197456-3511?text=${text}`;
             window.open(url, '_blank');
         }
   
