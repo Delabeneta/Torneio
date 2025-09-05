@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneio de Vôlei - Igreja</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+    <link rel="stylesheet" href="home.css">
+
+</head>
+<body>
+       <div class="bg-animation"></div>
+    <div class="bg-overlay"></div>
+
+    <!-- Geometric shapes -->
+    <div class="geometric-shape shape-1"></div>
+    <div class="geometric-shape shape-2"></div>
+    <div class="geometric-shape shape-3"></div>
+
+    <!-- Header Section -->
+    <section class="header-section" id="home">
+        <div class="banner-container">
+            <div class="banner-placeholder">
+                <div style="font-size: 3rem;">🏐</div>
+                <div>Espaço reservado para banner</div>
+            </div>
+        </div>
+        
+        <h1 class="main-title">TORNEIO DE VÔLEI</h1>
+        
+        <div class="scroll-indicator" onclick="scrollToSection('content')">
+            <div style="font-size: 2rem;">↓</div>
+            <div>Role para baixo</div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section" id="content">
+        <div class="container">
+
+<!-- FAQ Section -->
+            <div class="faq-container">
+
+            <!-- Countdown Section -->
+            <div class="countdown-section">
+                <div class="countdown-container">
+                    <h2 class="countdown-title">Contagem Regressiva</h2>
+                    <div class="countdown-timer" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">00</span>
+                            <span class="countdown-label">Dias</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">00</span>
+                            <span class="countdown-label">Horas</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">00</span>
+                            <span class="countdown-label">Min</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">00</span>
+                            <span class="countdown-label">Seg</span>
+                        </div>
+                    </div>
+                    <p class="countdown-subtitle">Para o início do torneio!</p>
+                </div>
+            </div>
+
+            
+                <div class="faq-item">
+                    <div class="faq-number">01</div>
+                    <div class="faq-content">
+                        <h2 class="faq-question">Quem pode participar do torneio?</h2>
+                        <div class="faq-answer">
+                            Para todos amantes do Vôlei com idade entre <strong> 13 a 25 anos</span> completos até o dia do evento
+                            <br><br>
+                            <strong>⚠️ É obrigatório levar um documento de identidade!</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-number">02</div>
+                    <div class="faq-content">
+                        <h2 class="faq-question">Quantos jogadores posso inscrever?</h2>
+                        <div class="faq-answer">
+                            Cada time deve ter no mínimo <span class="highlight">5 jogadores</span> e no máximo <span class="highlight">8 jogadores</span>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-number">03</div>
+                    <div class="faq-content">
+                        <h2 class="faq-question">Quanto custa a inscrição?</h2>
+                        <div class="faq-answer">
+                            A taxa de inscrição é de <span class="highlight">R$ 80,00 por time</span>, podendo ser parcelada:
+                            <ul>
+                                <li><strong>R$ 40,00</strong> até dia <strong>05/10</strong></li>
+                                <li><strong>R$ 40,00</strong> restante até o dia anterior do torneio (<strong>DIA E MÊS</strong>)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-number">04</div>
+                    <div class="faq-content">
+                        <h2 class="faq-question">Como fazer o pagamento?</h2>
+                        <div class="faq-answer">
+                            O pagamento pode ser efetuado pelo PIX: <span class="highlight">PIX DO FAC</span>
+                            <br><br>
+                            O comprovante deve ser enviado para o coordenador <strong>GABRIEL</strong>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-number">05</div>
+                    <div class="faq-content">
+                        <h2 class="faq-question">Onde será o torneio?</h2>
+                        <div class="faq-answer">
+                            O torneio acontecerá no <span class="highlight">LOCAL</span>, no dia <span class="highlight">DIA E MÊS</span>, a partir das <span class="highlight">Y horário</span>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-number">06</div>
+                    <div class="faq-content">
+                        <h2 class="faq-question">Como confirmo minha inscrição?</h2>
+                        <div class="faq-answer">
+                            Após preencher o formulário e realizar o pagamento, você receberá a confirmação por <strong>WhatsApp</strong> junto com instruções finais.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <div class="cta-container">
+                    <div class="cta-content">
+                        <h2 class="cta-title">Não perca tempo!</h2>
+                        <p class="cta-subtitle">Faça já a sua inscrição</p>
+                        <p class="cta-description">Garanta sua vaga no torneio mais esperado do ano. As vagas são limitadas!</p>
+                        <button class="cta-button" onclick="windows.open('linkdoforms', '_blank')">
+                            <span>INSCREVER-SE AGORA</span>
+                        </button>
+                    </div>
+                    <div class="cta-visual">
+                        <div class="cta-circle"></div>
+                        <div class="cta-circle-small"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3 class="footer-title">Dúvidas?</h3>
+                    <p class="footer-subtitle">Entre em contato com nossa coordenação</p>
+                </div>
+                <div class="footer-contact">
+                    <button class="btn-share whatsapp" onclick="shareOnWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Torneio de Vôlei - Igreja. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+      <script src="home.js" defer></script>
+
+ </body>
+</html>
