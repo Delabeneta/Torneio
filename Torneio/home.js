@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         function updateCountdown() {
-            // Data do torneio - SUBSTITUA PELA DATA REAL
             const tournamentDate = new Date('2025-10-19T08:00:00').getTime();
             const now = new Date().getTime();
             const distance = tournamentDate - now;
