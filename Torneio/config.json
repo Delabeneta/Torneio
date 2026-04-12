@@ -1,0 +1,31 @@
+{
+  "tournament": {
+    "name": "",
+    "badge": "",
+    "date": "2026-04-25",
+    "time": "08:00",
+    "location": "Local - a Definir",
+    "after_mass": false
+  },
+  "players": {
+    "min_age": 14,
+    "min_per_team": 5,
+    "max_per_team": 8
+  },
+  "registration": {
+    "total_price": "R$ 100,00",
+    "installment_1_value": "R$ 50,00",
+    "installment_1_deadline": "20/04",
+    "installment_2_value": "R$ 50,00",
+    "installment_2_deadline": "dia anterior ao torneio",
+    "prize": "Kit Churrasco"
+  },
+  "payment": {
+    "pix_key": "joamraiz@gmail.com",
+    "coordinator_name": "Luquinha",
+    "whatsapp": "5521987521267"
+  },
+  "form": {
+    "url": "form.html"
+  }
+}

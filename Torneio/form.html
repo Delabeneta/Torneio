@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscrição — Torneio de Futsal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="home.css">
+  <style>
+    /* ── Form page styles ── */
+    .form-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 60px 20px 80px;
+    }
+
+    .form-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 56px;
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 760px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-header {
+      border-bottom: 2px solid var(--border-subtle);
+      padding-bottom: 28px;
+      margin-bottom: 40px;
+    }
+
+    .form-header-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      letter-spacing: 2px;
+      color: var(--text-dark);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .form-subtitle {
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* ── Section headings ── */
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      color: var(--primary);
+      margin: 36px 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-subtle);
+    }
+
+    /* ── Form groups ── */
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    label .req {
+      color: var(--secondary);
+      margin-left: 2px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background: var(--bg-base);
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(45, 91, 122, 0.10);
+      background: transparent;
+    }
+
+    input::placeholder {
+      color: #aab;
+      font-weight: 400;
+    }
+
+    /* ── Players section ── */
+    .players-block {
+      background: var(--bg-base);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      margin: 4px 0 24px;
+    }
+
+    .players-count-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .player-row {
+      display: grid;
+      grid-template-columns: 1fr 100px 36px;
+      gap: 10px;
+      margin-bottom: 10px;
+      align-items: center;
+    }
+
+    .btn-remove {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1.5px solid rgba(229, 62, 62, 0.3);
+      background: rgba(229, 62, 62, 0.06);
+      color: #e53e3e;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .btn-remove:hover {
+      background: #e53e3e;
+      border-color: #e53e3e;
+      color: #fff;
+    }
+
+    .btn-add-player {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1.5px solid var(--border-strong);
+      color: var(--primary);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border-radius: 100px;
+      cursor: pointer;
+      margin-top: 14px;
+      transition: all 0.2s;
+    }
+
+    .btn-add-player:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    .players-note {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* ── Submit ── */
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      border: none;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      letter-spacing: 3px;
+      padding: 20px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      margin-top: 8px;
+      transition: transform 0.25s, box-shadow 0.25s, opacity 0.2s;
+      box-shadow: 0 10px 28px rgba(45, 91, 122, 0.25);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(45, 91, 122, 0.32);
+    }
+
+    .btn-submit:active {
+      transform: translateY(-1px);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* ── Status message ── */
+    .status-msg {
+      margin-top: 20px;
+      padding: 16px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      display: none;
+    }
+
+    .status-msg.success {
+      background: rgba(72, 187, 120, 0.12);
+      border: 1.5px solid rgba(72, 187, 120, 0.4);
+      color: #276749;
+      display: block;
+    }
+
+    .status-msg.error {
+      background: rgba(229, 62, 62, 0.08);
+      border: 1.5px solid rgba(229, 62, 62, 0.3);
+      color: #822727;
+      display: block;
+    }
+
+    .status-msg.loading {
+      background: rgba(45, 91, 122, 0.08);
+      border: 1.5px solid rgba(45, 91, 122, 0.25);
+      color: var(--primary);
+      display: block;
+    }
+
+    /* ── Back link ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      text-decoration: none;
+      margin-bottom: 28px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--primary); }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .form-card { padding: 32px 24px; }
+      .form-title { font-size: 2.2rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .player-row { grid-template-columns: 1fr 80px 36px; }
+    }
+
+    @media (max-width: 480px) {
+      .form-card { padding: 24px 16px; }
+      .form-title { font-size: 1.9rem; }
+      .players-block { padding: 18px 14px; }
+    }
+
+    /* ── Toggle time incompleto ── */
+    .incomplete-toggle {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .incomplete-toggle input[type="checkbox"] {
+      display: none;
+    }
+
+    .toggle-box {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      border: 2px solid var(--border-strong);
+      border-radius: 4px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      margin-top: 2px;
+    }
+
+    .incomplete-toggle input:checked + .toggle-box {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .incomplete-toggle input:checked + .toggle-box::after {
+      content: '';
+      width: 5px;
+      height: 9px;
+      border: 2px solid #fff;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg) translateY(-1px);
+      display: block;
+    }
+
+    .toggle-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      line-height: 1.5;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .incomplete-note {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-left: 3px solid var(--primary);
+      background: rgba(232, 88, 10, 0.06);
+      border-radius: 0 6px 6px 0;
+      line-height: 1.5;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="bg-animation"></div>
+  <div class="bg-overlay"></div>
+  <div class="geometric-shape shape-1"></div>
+  <div class="geometric-shape shape-2"></div>
+
+  <div class="form-wrapper">
+    <div class="form-card">
+
+      <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Voltar
+      </a>
+
+      <div class="form-header">
+        <div class="form-header-label">Inscrição de Time</div>
+        <h1 class="form-title">TORNEIO DE FUTSAL</h1>
+        <p class="form-subtitle">Preencha os dados abaixo para garantir a vaga da sua equipe. Após o envio, entraremos em contato pelo WhatsApp para confirmar o pagamento.</p>
+      </div>
+
+      <form id="registrationForm" novalidate>
+
+        <!-- Dados do líder -->
+        <div class="section-heading">Dados do Líder</div>
+
+        <div class="form-group">
+          <label>Nome Completo <span class="req">*</span></label>
+          <input type="text" id="leaderName" placeholder="Ex: João Silva" autocomplete="name" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Idade <span class="req">*</span></label>
+            <input type="number" id="leaderAge" placeholder="Ex: 25" min="13" max="80" required>
+          </div>
+          <div class="form-group">
+            <label>Telefone / WhatsApp <span class="req">*</span></label>
+            <input type="tel" id="leaderPhone" placeholder="(21) 98989-0000" autocomplete="tel" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Você participa de algum movimento? <span class="req">*</span></label>
+          <input type="text" id="leaderLocation" placeholder="Ex: Joam - Raiz da Serra" required>
+        </div>
+
+        <!-- Dados do time -->
+        <div class="section-heading">Dados do Time</div>
+
+        <div class="form-group">
+          <label>Nome do Time <span class="req">*</span></label>
+          <input type="text" id="teamName" placeholder="Ex: Discípulos do VAR" required>
+        </div>
+
+        <!-- Jogadores -->
+        <div class="section-heading">Jogadores</div>
+
+        <div class="players-block">
+          <div class="players-count-badge" id="playersBadge">5 jogadores</div>
+
+          <div id="playersList"></div>
+
+          <button type="button" class="btn-add-player" onclick="addPlayer()">
+            <i class="fas fa-plus"></i> Adicionar jogador
+          </button>
+
+          <p class="players-note">Mínimo de 5 jogadores e máximo de 8 por time. Todos devem ter ao menos 13 anos completos no dia do evento.</p>
+
+          <label class="incomplete-toggle">
+            <input type="checkbox" id="incompleteTeam" onchange="toggleIncomplete()">
+            <span class="toggle-box"></span>
+            <span class="toggle-label">Meu time ainda não está completo — quero reservar a vaga assim mesmo</span>
+          </label>
+          <p class="incomplete-note" id="incompleteNote" style="display:none;">
+            Os jogadores restantes podem ser informados depois pelo WhatsApp. Preencha apenas os que já confirmaram.
+          </p>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">CONFIRMAR INSCRIÇÃO</button>
+      </form>
+
+      <div id="statusMsg" class="status-msg"></div>
+
+    </div>
+  </div>
+
+  <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxY1wBnV8na2U61jxDyIw8YbtNS_U3HnMVThU049LNP7HjenqM83ppuRrjZ9DUQa8Xr/exec';
+    const MIN_PLAYERS = 5;
+    const MAX_PLAYERS = 8;
+    let incompleteMode = false;
+
+    function toggleIncomplete() {
+      incompleteMode = document.getElementById('incompleteTeam').checked;
+      document.getElementById('incompleteNote').style.display = incompleteMode ? 'block' : 'none';
+
+      const list = document.getElementById('playersList');
+      if (incompleteMode) {
+        while (list.children.length > 1) list.removeChild(list.lastChild);
+        list.querySelectorAll('input').forEach(i => i.removeAttribute('required'));
+      } else {
+        while (list.children.length < MIN_PLAYERS) addPlayerRow();
+        list.querySelectorAll('input').forEach(i => i.setAttribute('required', ''));
+      }
+      updateBadge();
+    }
+
+    function initPlayers() {
+      for (let i = 0; i < MIN_PLAYERS; i++) addPlayerRow();
+    }
+
+    function updateBadge() {
+      const count = document.getElementById('playersList').children.length;
+      document.getElementById('playersBadge').textContent =
+        count === 1 ? '1 jogador' : `${count} jogadores`;
+    }
+
+    function addPlayerRow() {
+      const list = document.getElementById('playersList');
+      const index = list.children.length + 1;
+
+      const row = document.createElement('div');
+      row.className = 'player-row';
+      row.innerHTML = `
+        <input type="text" class="player-name" placeholder="Nome do jogador ${index}" required>
+        <input type="number" class="player-age" placeholder="Idade" min="13" max="80" required>
+        <button type="button" class="btn-remove" onclick="removePlayer(this)" title="Remover">
+          <i class="fas fa-times"></i>
+        </button>
+      `;
+      list.appendChild(row);
+      updateBadge();
+    }
+
+    function addPlayer() {
+      const count = document.getElementById('playersList').children.length;
+      if (count >= MAX_PLAYERS) {
+        showStatus(`Máximo de ${MAX_PLAYERS} jogadores por time.`, 'error');
+        return;
+      }
+      addPlayerRow();
+    }
+
+    function removePlayer(btn) {
+      const count = document.getElementById('playersList').children.length;
+      const minimum = incompleteMode ? 1 : MIN_PLAYERS;
+      if (count <= minimum) {
+        showStatus(incompleteMode
+          ? 'Informe ao menos 1 jogador.'
+          : `O time precisa ter pelo menos ${MIN_PLAYERS} jogadores.`, 'error');
+        return;
+      }
+      btn.closest('.player-row').remove();
+      updateBadge();
+    }
+
+    function validateForm() {
+      const fields = [
+        { id: 'leaderName', label: 'Nome do líder' },
+        { id: 'leaderAge', label: 'Idade do líder' },
+        { id: 'leaderPhone', label: 'Telefone' },
+        { id: 'leaderLocation', label: 'Cidade / Bairro' },
+        { id: 'teamName', label: 'Nome do time' },
+      ];
+
+      for (const f of fields) {
+        const val = document.getElementById(f.id).value.trim();
+        if (!val) {
+          showStatus(`Preencha o campo: ${f.label}.`, 'error');
+          document.getElementById(f.id).focus();
+          return false;
+        }
+      }
+
+      const age = parseInt(document.getElementById('leaderAge').value);
+      if (isNaN(age) || age < 13) {
+        showStatus('A idade do líder deve ser de pelo menos 13 anos.', 'error');
+        return false;
+      }
+
+      const rows = document.querySelectorAll('.player-row');
+
+      if (incompleteMode) {
+        for (let i = 0; i < rows.length; i++) {
+          const nameInput = rows[i].querySelector('.player-name');
+          const ageInput = rows[i].querySelector('.player-age');
+          const name = nameInput.value.trim();
+          if (name) {
+            const playerAge = parseInt(ageInput.value);
+            if (isNaN(playerAge) || playerAge < 13) {
+              showStatus(`Idade inválida para o jogador ${i + 1}. Mínimo: 13 anos.`, 'error');
+              ageInput.focus();
+              return false;
+            }
+          }
+        }
+      } else {
+        if (rows.length < MIN_PLAYERS) {
+          showStatus(`O time precisa ter pelo menos ${MIN_PLAYERS} jogadores.`, 'error');
+          return false;
+        }
+        
+        for (let i = 0; i < rows.length; i++) {
+          const name = rows[i].querySelector('.player-name').value.trim();
+          const playerAge = parseInt(rows[i].querySelector('.player-age').value);
+          
+          if (!name) {
+            showStatus(`Preencha o nome do jogador ${i + 1}.`, 'error');
+            rows[i].querySelector('.player-name').focus();
+            return false;
+          }
+          if (isNaN(playerAge) || playerAge < 13) {
+            showStatus(`Idade inválida para o jogador ${i + 1}. Mínimo: 13 anos.`, 'error');
+            rows[i].querySelector('.player-age').focus();
+            return false;
+          }
+        }
+      }
+
+      return true;
+    }
+
+    function showStatus(msg, type) {
+      const el = document.getElementById('statusMsg');
+      el.textContent = msg;
+      el.className = `status-msg ${type}`;
+    }
+
+    function hideStatus() {
+      document.getElementById('statusMsg').className = 'status-msg';
+    }
+
+    function getFormattedDateTime() {
+      return new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+    }
+
+    document.getElementById('registrationForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideStatus();
+
+      if (!validateForm()) return;
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'ENVIANDO...';
+      showStatus('Enviando inscrição, aguarde...', 'loading');
+
+      const rows = document.querySelectorAll('.player-row');
+      const players = Array.from(rows).map(row => {
+        const name = row.querySelector('.player-name').value.trim();
+        const age = row.querySelector('.player-age').value;
+        return `${name} (${age} anos)`;
+      });
+
+      const payload = {
+        timestamp: getFormattedDateTime(),
+        leaderName: document.getElementById('leaderName').value.trim(),
+        leaderAge: document.getElementById('leaderAge').value,
+        leaderLocation: document.getElementById('leaderLocation').value.trim(),
+        leaderPhone: document.getElementById('leaderPhone').value.trim(),
+        teamName: document.getElementById('teamName').value.trim(),
+        players: players.join('; '),
+        playersCount: players.length,
+        status: 'Pendente',
+        incomplete: incompleteMode ? 'Sim' : 'Não'
+      };
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: JSON.stringify(payload)
+        });
+
+        showStatus(
+          'Inscrição enviada com sucesso! Entraremos em contato pelo WhatsApp para confirmar o pagamento.',
+          'success'
+        );
+
+        setTimeout(() => {
+          document.getElementById('registrationForm').reset();
+          document.getElementById('playersList').innerHTML = '';
+          initPlayers();
+          hideStatus();
+          btn.disabled = false;
+          btn.textContent = 'CONFIRMAR INSCRIÇÃO';
+        }, 5000);
+
+      } catch (err) {
+        console.error('Erro no envio:', err);
+        showStatus(
+          'Erro ao enviar. Verifique sua conexão e tente novamente.',
+          'error'
+        );
+        btn.disabled = false;
+        btn.textContent = 'CONFIRMAR INSCRIÇÃO';
+      }
+    });
+
+    initPlayers();
+  </script>
+</body>
+</html>

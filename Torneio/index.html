@@ -1,35 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- código feito para fins de estudos -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TORNEIO DE VÔLEI - @mpmfacjoam</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="home.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Torneio de Futsal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <div class="bg-animation"></div>
-    <div class="bg-overlay"></div>
+  <div class="bg-animation"></div>
+  <div class="bg-overlay"></div>
 
-    <!-- Geometric shapes -->
-    <div class="geometric-shape shape-1"></div>
-    <div class="geometric-shape shape-2"></div>
-    <div class="geometric-shape shape-3"></div>
+  <div class="geometric-shape shape-1"></div>
+  <div class="geometric-shape shape-2"></div>
+  <div class="geometric-shape shape-3"></div>
 
-    <!-- Header Section -->
-    <section class="header-section" id="home">
-        <h1 class="main-title">TORNEIO DE VÔLEI - SJRAIZ</h1>
-        
-        <div class="scroll-indicator" onclick="scrollToSection('content')">
-            <div style="font-size: 2rem;">↓</div>
-            <div>Role para baixo</div>
+  <!-- Header -->
+  <section class="header-section" id="home">
+    <h1 class="main-title" id="tournamentName"></h1>
+    <div class="main-title-badge" id="tournamentBadge"></div>
+    <div class="scroll-indicator" onclick="scrollToSection('content')">
+      <div style="font-size: 2rem;">↓</div>
+      <div>Role para baixo</div>
+    </div>
+  </section>
+
+  <!-- Conteúdo -->
+  <section class="content-section" id="content">
+    <div class="container">
+
+      <!-- Contagem regressiva -->
+      <div class="countdown-section">
+        <div class="countdown-container">
+          <h2 class="countdown-title">Contagem Regressiva</h2>
+          <div class="countdown-timer" id="countdown">
+            <div class="countdown-item">
+              <span class="countdown-number" id="days">00</span>
+              <span class="countdown-label">Dias</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-number" id="hours">00</span>
+              <span class="countdown-label">Horas</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-number" id="minutes">00</span>
+              <span class="countdown-label">Min</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-number" id="seconds">00</span>
+              <span class="countdown-label">Seg</span>
+            </div>
+          </div>
+          <p class="countdown-subtitle">Para o início do torneio</p>
         </div>
-    </section>
+      </div>
 
-    <!-- Content Section -->
-    <section class="content-section" id="content">
-        <div class="container">
+      <!-- FAQ -->
+      <div class="faq-container">
 
          <!-- contagem Section  -->
             <div class="countdown-section">
@@ -157,31 +184,124 @@
                     </div>
                 </div>
             </div>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer + botao do wpp direto-->
-    <footer class="footer-section">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3 class="footer-title">Dúvidas?</h3>
-                    <p class="footer-subtitle">Entre em contato com nossa coordenação</p>
-                </div>
-                <div class="footer-contact">
-                    <button class="btn-share whatsapp" onclick="shareOnWhatsApp()">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>WhatsApp</span>
-                    </button>
-                </div>
+        <div class="faq-item">
+          <div class="faq-number">02</div>
+          <div class="faq-content">
+            <h2 class="faq-question">Quantos jogadores posso inscrever?</h2>
+            <div class="faq-answer">
+              Cada time deve ter no mínimo <span class="highlight"><span id="minPlayers">4</span> jogadores</span> e no máximo <span class="highlight"><span id="maxPlayers">6</span> jogadores</span>.
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Torneio de Vôlei - SJRAIZ. Todos os direitos reservados.</p>
-            </div>
+          </div>
         </div>
-    </footer>
-    <script src="home.js" defer></script>
+
+        <div class="faq-item">
+          <div class="faq-number">03</div>
+          <div class="faq-content">
+            <h2 class="faq-question">Quanto custa a inscrição?</h2>
+            <div class="faq-answer">
+              A taxa de inscrição é de <span class="highlight" id="priceValue"></span>, podendo ser parcelada:
+              <ul>
+                <li><strong id="installment1Value"></strong> até dia <strong id="installment1Deadline"></strong></li>
+                <li><strong id="installment2Value"></strong> restante até o <strong id="installment2Deadline"></strong></li>
+              </ul>
+              O time vencedor levará um <strong id="prize"></strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-number">04</div>
+          <div class="faq-content">
+            <h2 class="faq-question">Como fazer o pagamento?</h2>
+            <div class="faq-answer">
+              O pagamento deve ser efetuado via PIX: <span class="highlight" id="pixKey"></span>
+              <br><br>
+              O comprovante deve ser enviado para o coordenador <strong id="coordinatorName"></strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-number">05</div>
+          <div class="faq-content">
+            <h2 class="faq-question">Onde e quando será o torneio?</h2>
+            <div class="faq-answer" id="tournamentInfo"></div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-number">06</div>
+          <div class="faq-content">
+            <h2 class="faq-question">Vai ter cantina no evento?</h2>
+            <div class="faq-answer">
+              Sim. Durante o evento estaremos vendendo salgados e lanches para os participantes e acompanhantes.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-number">07</div>
+          <div class="faq-content">
+            <h2 class="faq-question">Como confirmo minha inscrição?</h2>
+            <div class="faq-answer">
+              Após preencher o formulário e realizar o pagamento, você receberá a confirmação por <strong>WhatsApp</strong> junto com as instruções finais.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <div class="cta-container">
+          <div class="cta-content">
+            <h2 class="cta-title">Não perca tempo!</h2>
+            <p class="cta-subtitle">Garanta sua vaga agora</p>
+            <p class="cta-description">As vagas são limitadas. Inscreva seu time e faça parte do torneio mais esperado do ano.</p>
+            <button class="cta-button">
+              <span>INSCREVER-SE AGORA</span>
+            </button>
+          </div>
+          <div class="cta-visual">
+            <div class="cta-circle"></div>
+            <div class="cta-circle-small"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3 class="footer-title">Dúvidas?</h3>
+          <p class="footer-subtitle">Entre em contato com nossa coordenação pelo WhatsApp</p>
+        </div>
+        <div class="footer-contact">
+          <button class="btn-share whatsapp" onclick="shareOnWhatsApp()">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+          </button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 — JOAM Raiz. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="home.js" defer></script>
 </body>
+<<<<<<< HEAD
 
 </html>
 
+=======
+</html>
+>>>>>>> c38e525 (joam 2026)
