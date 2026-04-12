@@ -58,131 +58,14 @@
       <!-- FAQ -->
       <div class="faq-container">
 
-         <!-- contagem Section  -->
-            <div class="countdown-section">
-                <div class="countdown-container">
-                    <h2 class="countdown-title">Contagem Regressiva</h2>
-                    <div class="countdown-timer" id="countdown">
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="days">00</span>
-                            <span class="countdown-label">Dias</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="hours">00</span>
-                            <span class="countdown-label">Horas</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="minutes">00</span>
-                            <span class="countdown-label">Min</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="seconds">00</span>
-                            <span class="countdown-label">Seg</span>
-                        </div>
-                    </div>
-                    <p class="countdown-subtitle">Para o início do torneio!</p>
-                </div>
-            </div>
-
-            <!-- FAQ Section -->
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-number">01</div>
-                    <div class="faq-content">
-                        <h2 class="faq-question">Quem pode participar do torneio?</h2>
-                        <div class="faq-answer">
-                            O torneio é aberto a todos a partir de <strong>13 anos</strong> completos até o dia do evento
-                            <br><br>
-                            <strong>⚠️ É obrigatório levar um documento de identidade!</strong>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-number">02</div>
-                    <div class="faq-content">
-                        <h2 class="faq-question">Quantos jogadores posso inscrever?</h2>
-                        <div class="faq-answer">
-                            Cada time deve ter no mínimo <span class="highlight">4 jogadores</span> e no máximo <span class="highlight">6 jogadores</span>.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-number">03</div>
-                    <div class="faq-content">
-                        <h2 class="faq-question">Quanto custa a inscrição?</h2>
-                        <div class="faq-answer">
-                            A taxa de inscrição é de <span class="highlight">R$ 100,00 por time</span>, podendo ser parcelada:
-                            <ul>
-                                <li><strong>R$ 50,00</strong> até dia <strong>05/10</strong></li>
-                                <li><strong>R$ 50,00</strong> restante até o dia anterior do torneio </li>
-                            </ul>
-                            <span><strong>O ganhador levará um kit de churrasco!</strong></span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-number">04</div>
-                    <div class="faq-content">
-                        <h2 class="faq-question">Como fazer o pagamento?</h2>
-                        <div class="faq-answer">
-                            O pagamento deve ser efetuado pelo PIX: <span class="highlight">facraizdaserra@gmail.com</span>
-                            <br><br>
-                            O comprovante deve ser enviado para o coordenador <strong>GABRIEL</strong>.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-number">05</div>
-                    <div class="faq-content">
-                        <h2 class="faq-question">Onde será o torneio?</h2>
-                        <div class="faq-answer">
-                                O torneio será realizado no Ginásio Poliesportivo do Alegria, na rua C,  no dia <strong>19 de outubro</strong>, às 8h.                        </div>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-number">06</div>
-                    <div class="faq-content">
-                        <h2 class="faq-question">Vai ter cantina no torneio?</h2>
-                       <div class="faq-answer">
-                        Sim! Durante o evento estaremos vendendo Salgados
-                        🍴
-                     </div>
-                    </div>
-                </div>
-
-
-                <div class="faq-item">
-                    <div class="faq-number">07</div>
-                    <div class="faq-content">
-                        <h2 class="faq-question">Como confirmo minha inscrição?</h2>
-                        <div class="faq-answer">
-                            Após preencher o formulário e realizar o pagamento, você receberá a confirmação por <strong>WhatsApp</strong> junto com instruções finais.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA Section -->
-            <div class="cta-section">
-                <div class="cta-container">
-                    <div class="cta-content">
-                        <h2 class="cta-title">Não perca tempo!</h2>
-                        <p class="cta-subtitle">Faça já a sua inscrição</p>
-                        <p class="cta-description">Garanta sua vaga no torneio mais esperado do ano. As vagas são limitadas!</p>
-                        <button class="cta-button" onclick="window.open('https://form.typeform.com/to/UjdpVGR8', '_blank', 'noopener,noreferrer')">
-                            <span>INSCREVER-SE AGORA</span>
-                        </button>
-                    </div>
-                    <div class="cta-visual">
-                        <div class="cta-circle"></div>
-                        <div class="cta-circle-small"></div>
-                    </div>
-                </div>
+        <div class="faq-item">
+          <div class="faq-number">01</div>
+          <div class="faq-content">
+            <h2 class="faq-question">Quem pode participar do torneio?</h2>
+            <div class="faq-answer">
+              O torneio é aberto a todos a partir de <strong><span id="minAge">13</span> anos</strong> completos até o dia do evento.
+              <br><br>
+              <strong>É obrigatório levar um documento de identidade.</strong>
             </div>
           </div>
         </div>
@@ -237,7 +120,7 @@
           <div class="faq-content">
             <h2 class="faq-question">Vai ter cantina no evento?</h2>
             <div class="faq-answer">
-              Sim. Durante o evento estaremos vendendo salgados e lanches para os participantes e acompanhantes.
+              Sim. Durante o evento estaremos vendendo lanches! 
             </div>
           </div>
         </div>
@@ -298,10 +181,4 @@
 
   <script src="home.js" defer></script>
 </body>
-<<<<<<< HEAD
-
 </html>
-
-=======
-</html>
->>>>>>> c38e525 (joam 2026)
