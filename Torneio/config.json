@@ -8,7 +8,7 @@
     "after_mass": false
   },
   "players": {
-    "min_age": 14,
+    "min_age": 12,
     "min_per_team": 5,
     "max_per_team": 8
   },
@@ -21,9 +21,9 @@
     "prize": "Kit Churrasco"
   },
   "payment": {
-    "pix_key": "joamraiz@gmail.com",
-    "coordinator_name": "Luquinha",
-    "whatsapp": "5521987521267"
+    "pix_key": "- ",
+    "coordinator_name": "Anna",
+    "whatsapp": "5521995948780"
   },
   "form": {
     "url": "form.html"
